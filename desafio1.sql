@@ -18,7 +18,7 @@ CREATE TABLE SpotifyClone.usuario(
     usuario VARCHAR(255) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
-    data_assinatura INT NOT NULL,
+    data_assinatura DATE NOT NULL,
     FOREIGN KEY (plano_id) REFERENCES SpotifyClone.plano(plano_id)
 ) engine = InnoDB;
 
@@ -50,9 +50,9 @@ CREATE TABLE SpotifyClone.historico_de_reproducoes(
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
     data_reproducao DATETIME NOT NULL,
-    CONSTRAINT PRIMARY KEY (usuario_id, cancao_id),
+    CONSTRAINT PRIMARY KEY(usuario_id, cancao_id),
     FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuario(usuario_id),
-    FOREIGN KEY (cancao_id) REFERENCES SpotifyClone.cancao(cancao_id)
+    FOREIGN KEY (cancao_id) REFERENCES SpotifyClone.cancoes(cancao_id)
 ) engine = InnoDB;
 
 INSERT INTO SpotifyClone.artista (artista)
@@ -131,14 +131,14 @@ VALUES
   ('Time Fireworks', 152, 2),
   ('Magic Circus', 105, 3),
   ('Honey, So Do I', 207, 3),
-  (`Sweetie, Let's Go Wild`, 139, 3),
+  ('Sweetie, Let''s Go Wild', 139, 3),
   ('She Knows', 244, 3),
   ('Fantasy For Me', 200, 4),
   ('Celebration Of More', 163, 4),
-  ('Rock His Everything', 116, 4)
+  ('Rock His Everything', 116, 4),
   ('Home Forever', 203, 4),
   ('Diamond Power', 152, 4),
-  (`Let's Be Silly`, 105, 4),
+  ('Let''s Be Silly', 105, 4),
   ('Thang Of Thunder', 240, 5),
   ('Words Of Her Life', 185, 5),
   ('Without My Streets', 176, 5),
@@ -146,22 +146,22 @@ VALUES
   ('History Of My Roses', 222, 6),
   ('Without My Love', 111, 6),
   ('Walking And Game', 123, 6),
-  ('Young And Father', 197, 6)
+  ('Young And Father', 197, 6),
   ('Finding My Traditions', 197, 7),
   ('Walking And Man', 229, 7),
   ('Hard And Time', 135, 7),
-  (`Honey, I'm A Lone Wolf`, 150, 7),
-  (`She Thinks I Won't Stay Tonight`, 166, 8),
-  (`He Heard You're Bad For Me`, 154, 8),
-  (`He Hopes We Can't Stay`, 210, 8),
+  ('Honey, I''m A Lone Wolf', 150, 7),
+  ('She Thinks I Won''t Stay Tonight', 166, 8),
+  ('He Heard You''re Bad For Me', 154, 8),
+  ('He Hopes We Can''t Stay', 210, 8),
   ('I Know I Know', 117, 8),
-  (`He's Walking Away`, 159, 9),
-  (`He's Trouble`, 138, 9),
+  ('He''s Walking Away', 159, 9),
+  ('He''s Trouble', 138, 9),
   ('I Heard I Want To Bo Alone', 120, 9),
   ('I Ride Alone', 151, 9),
   ('Honey', 79, 10),
   ('You Cheated On Me', 95, 10),
-  (`Wouldn't It Be Nice`, 213, 10),
+  ('Wouldn''t It Be Nice', 213, 10),
   ('Baby', 136, 10),
   ('You Make Me Feel So..', 83, 10);
 
@@ -205,4 +205,3 @@ VALUES
   (10, 21, '2017-12-04 05:33:43'),
   (10, 12, '2017-07-27 05:24:49'),
   (10, 13, '2017-12-25 01:03:57');
-  
